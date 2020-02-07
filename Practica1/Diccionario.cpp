@@ -1,4 +1,5 @@
 #include "include/Diccionario.h"
+#include <iterator>
 using namespace std;
 DiccAP leer_mapa(std::string filename){
   DiccAP d = new Diccionario();
@@ -11,10 +12,12 @@ DiccAP leer_mapa(std::string filename){
     return nullptr;
   }
   else {
-    string ch;
+    std::string ch;
     while (!new_file.eof()){
       new_file >>ch;
-      d->map[ch] = i++;
+      if (d->map.find(ch) == d->map.end() ){
+        d->map[ch] = i++;
+      }
     }
     new_file.close();
   }
@@ -23,6 +26,18 @@ DiccAP leer_mapa(std::string filename){
 }
 void imprimir_diccionario(DiccAP d){
   cout<<"LEN:"<<d->len<<"\n";
-  for (std::map<char,int>::iterator it=d->map.begin(); it!=d->map.end(); ++it)
+  for (std::map<std::string,int>::iterator it=d->map.begin(); it!=d->map.end(); ++it)
   std::cout << it->first << " => " << it->second << '\n';
+}
+std::string find_val(DiccAP d,int val){
+  std::string key;
+  for (auto it = (d->map).begin(); it != (d->map).end(); ++it){
+    if (it->second == val){
+      cout<<it->first;
+      return it->first;
+        key = it->first ;
+        return key;
+    }
+}
+  return nullptr;
 }

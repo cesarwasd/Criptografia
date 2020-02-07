@@ -5,10 +5,11 @@
 #include <iostream>
 #include <fstream>
 typedef struct{
-  std::map<string,int> map;
+  std::map<std::string,int> map;
   int len;
 } Diccionario;
 typedef Diccionario* DiccAP;
 DiccAP leer_mapa(std::string filename);
 void imprimir_diccionario(DiccAP);
+std::string find_val(DiccAP d,int val);
 #endif
