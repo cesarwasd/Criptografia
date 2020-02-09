@@ -33,7 +33,6 @@ std::string find_val(DiccAP d,int val){
   std::string key;
   for (auto it = (d->map).begin(); it != (d->map).end(); ++it){
     if (it->second == val){
-      cout<<it->first;
       return it->first;
         key = it->first ;
         return key;

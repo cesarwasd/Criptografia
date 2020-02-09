@@ -1,5 +1,7 @@
-#ifndef __VIGENARE_CIPHER_H
-#define __VIGENARE_CIPHER_H
+#ifndef __VIGENARE_CIPHER_H__
+#define __VIGENARE_CIPHER_H__
+#include "Euclides.h"
+#include <stdlib.h>
 class VigenareCipher
 {
     public:
